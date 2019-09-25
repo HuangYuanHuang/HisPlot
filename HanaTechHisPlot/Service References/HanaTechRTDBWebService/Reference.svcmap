@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e01b84ad-8f5e-44b5-8a4f-8aba70b6a635" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.0.45:8081/RTDBService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RTDBService.xsd" MetadataType="Schema" ID="dd83336a-9ae0-41d9-81a2-81d9bb19cbd9" SourceId="1" SourceUrl="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RTDBService1.xsd" MetadataType="Schema" ID="79c4b02a-b6ce-46f3-a49b-e6e2dc98541a" SourceId="1" SourceUrl="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd3" />
+    <MetadataFile FileName="RTDBService.wsdl" MetadataType="Wsdl" ID="b83abf64-8bf4-40e5-9c97-ea32d785ff7c" SourceId="1" SourceUrl="http://172.16.0.45:8081/RTDBService.svc?wsdl" />
+    <MetadataFile FileName="RTDBService2.xsd" MetadataType="Schema" ID="8f58fa95-e291-4f65-bd6e-99f2b183790e" SourceId="1" SourceUrl="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RTDBService.disco" MetadataType="Disco" ID="f408416b-fecd-43fd-b4dd-c3a8e395ce2c" SourceId="1" SourceUrl="http://172.16.0.45:8081/RTDBService.svc?disco" />
+    <MetadataFile FileName="RTDBService3.xsd" MetadataType="Schema" ID="9b3dde75-5ee7-4f8d-8b96-72fc87d3732d" SourceId="1" SourceUrl="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="Http://www.hanatech.com.cn/WCFService/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WCFAspen" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IWCFAspen_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="Http://www.hanatech.com.cn/WCFService/" location="" />
+  <wsdl:types />
+  <wsdl:binding name="NetTcpBinding_IWCFAspen" type="i0:IWCFAspen">
+    <wsp:PolicyReference URI="#NetTcpBinding_IWCFAspen_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ExistsTag">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/ExistsTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/AddTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTag">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/UpdateTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTag">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/DeleteTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutTagValue">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/PutTagValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutTagValueAndDateTime">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/PutTagValueAndDateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataCollectorList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetDataCollectorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetUnitList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByPage">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByPageAndCount">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByPageAndCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByTempPageAndCount">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempPageAndCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTempPageAndCount">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempPageAndCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTempDevicePageAndCount">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempDevicePageAndCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByTempPage">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTempPage">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByTemp">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTemp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTemp">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTemp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProperty">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagPropertyList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagPropertyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchData">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByValueListByCache">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByValueListByCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueByCache">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueByCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueListByCache">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueListByCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagPropertyList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagPropertyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTemp">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTemp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTempList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTempList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParam">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByQueryParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParamList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByQueryParamList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTrend">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTrend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByHistory">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByStringHistory">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByStringHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByAggregates">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByAggregates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagFieldValue">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagFieldValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagFieldValueList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagFieldValueList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CacheListTest">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/CacheListTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCosFileds">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetCosFileds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceState">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetInterfaceState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingle">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetSingle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuery">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/ExecuteSql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUnit">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/AddUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTDBHostList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetRTDBHostList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataList">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProcessDataList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataListByMap">
+      <soap12:operation soapAction="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProcessDataListByMap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WCFAspen">
+    <wsdl:port name="NetTcpBinding_IWCFAspen" binding="tns:NetTcpBinding_IWCFAspen">
+      <soap12:address location="net.tcp://10.136.52.150:4510/WCFAspen" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://10.136.52.150:4510/WCFAspen</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

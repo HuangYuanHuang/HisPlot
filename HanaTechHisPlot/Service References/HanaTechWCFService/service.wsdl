@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Http://www.hanatech.com.cn/WCFService/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Http://www.hanatech.com.cn/WCFService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Http://www.hanatech.com.cn/WCFService/Imports">
+      <xsd:import namespace="Http://www.hanatech.com.cn/WCFService/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWCFAspen_ExistsTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistsTag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_ExistsTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistsTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_AddTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_AddTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_UpdateTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_UpdateTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_DeleteTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_DeleteTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_PutTagValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutTagValue" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_PutTagValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutTagValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_PutTagValueAndDateTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutTagValueAndDateTime" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_PutTagValueAndDateTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutTagValueAndDateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetDataCollectorList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataCollectorList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetDataCollectorList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataCollectorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetUnitList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetUnitList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByPage" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByPageAndCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByPageAndCount" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByPageAndCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByPageAndCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByTempPageAndCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByTempPageAndCount" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByTempPageAndCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByTempPageAndCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTempPageAndCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempPageAndCount" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTempPageAndCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempPageAndCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTempDevicePageAndCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempDevicePageAndCount" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTempDevicePageAndCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempDevicePageAndCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByTempPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByTempPage" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByTempPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByTempPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTempPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempPage" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTempPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByTemp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByTemp" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByTemp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTemp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTemp" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagByNoTemp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagByNoTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProperty" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagPropertyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagPropertyList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagPropertyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagPropertyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchData" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagValueList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagValueList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByValueListByCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByValueListByCache" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByValueListByCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByValueListByCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagValueByCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueByCache" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagValueByCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueByCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagValueListByCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueListByCache" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagValueListByCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueListByCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagPropertyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagPropertyList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTagPropertyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagPropertyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTemp_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTemp" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTemp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTempList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTempList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTempList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTempListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByQueryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParam" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByQueryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByQueryParamList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParamList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByQueryParamList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParamListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTrend_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTrend" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByTrend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTrendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByHistory" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByStringHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByStringHistory" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByStringHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByStringHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByAggregates_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByAggregates" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_FetchDataByAggregates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByAggregatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagFieldValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagFieldValue" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagFieldValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagFieldValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagFieldValueList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagFieldValueList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagFieldValueList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagFieldValueListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_CacheListTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CacheListTest" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_CacheListTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CacheListTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetCosFileds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCosFileds" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetCosFileds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCosFiledsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetInterfaceState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInterfaceState" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetInterfaceState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInterfaceStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetSingle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingle" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetSingle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuery" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_ExecuteSql_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteSql" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_ExecuteSql_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_AddUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnit" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_AddUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetRTDBHostList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRTDBHostList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetRTDBHostList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRTDBHostListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagProcessDataList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagProcessDataList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagProcessDataListByMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataListByMap" />
+  </wsdl:message>
+  <wsdl:message name="IWCFAspen_GetTagProcessDataListByMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataListByMapResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWCFAspen">
+    <wsdl:operation name="ExistsTag">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/ExistsTag" message="tns:IWCFAspen_ExistsTag_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/ExistsTagResponse" message="tns:IWCFAspen_ExistsTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/AddTag" message="tns:IWCFAspen_AddTag_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/AddTagResponse" message="tns:IWCFAspen_AddTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTag">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/UpdateTag" message="tns:IWCFAspen_UpdateTag_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/UpdateTagResponse" message="tns:IWCFAspen_UpdateTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTag">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/DeleteTag" message="tns:IWCFAspen_DeleteTag_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/DeleteTagResponse" message="tns:IWCFAspen_DeleteTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutTagValue">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/PutTagValue" message="tns:IWCFAspen_PutTagValue_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/PutTagValueResponse" message="tns:IWCFAspen_PutTagValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutTagValueAndDateTime">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/PutTagValueAndDateTime" message="tns:IWCFAspen_PutTagValueAndDateTime_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/PutTagValueAndDateTimeResponse" message="tns:IWCFAspen_PutTagValueAndDateTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataCollectorList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetDataCollectorList" message="tns:IWCFAspen_GetDataCollectorList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetDataCollectorListResponse" message="tns:IWCFAspen_GetDataCollectorList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetUnitList" message="tns:IWCFAspen_GetUnitList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetUnitListResponse" message="tns:IWCFAspen_GetUnitList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagList" message="tns:IWCFAspen_GetTagList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagListResponse" message="tns:IWCFAspen_GetTagList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByPage">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByPage" message="tns:IWCFAspen_GetTagByPage_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByPageResponse" message="tns:IWCFAspen_GetTagByPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByPageAndCount">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByPageAndCount" message="tns:IWCFAspen_GetTagByPageAndCount_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByPageAndCountResponse" message="tns:IWCFAspen_GetTagByPageAndCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByTempPageAndCount">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempPageAndCount" message="tns:IWCFAspen_GetTagByTempPageAndCount_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempPageAndCountResponse" message="tns:IWCFAspen_GetTagByTempPageAndCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTempPageAndCount">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempPageAndCount" message="tns:IWCFAspen_GetTagByNoTempPageAndCount_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempPageAndCountResponse" message="tns:IWCFAspen_GetTagByNoTempPageAndCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTempDevicePageAndCount">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempDevicePageAndCount" message="tns:IWCFAspen_GetTagByNoTempDevicePageAndCount_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempDevicePageAndCountResponse" message="tns:IWCFAspen_GetTagByNoTempDevicePageAndCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByTempPage">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempPage" message="tns:IWCFAspen_GetTagByTempPage_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempPageResponse" message="tns:IWCFAspen_GetTagByTempPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTempPage">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempPage" message="tns:IWCFAspen_GetTagByNoTempPage_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempPageResponse" message="tns:IWCFAspen_GetTagByNoTempPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByTemp">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTemp" message="tns:IWCFAspen_GetTagByTemp_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByTempResponse" message="tns:IWCFAspen_GetTagByTemp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagByNoTemp">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTemp" message="tns:IWCFAspen_GetTagByNoTemp_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagByNoTempResponse" message="tns:IWCFAspen_GetTagByNoTemp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProperty">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProperty" message="tns:IWCFAspen_GetTagProperty_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagPropertyResponse" message="tns:IWCFAspen_GetTagProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagPropertyList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagPropertyList" message="tns:IWCFAspen_GetTagPropertyList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagPropertyListResponse" message="tns:IWCFAspen_GetTagPropertyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchData">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchData" message="tns:IWCFAspen_FetchData_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataResponse" message="tns:IWCFAspen_FetchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagList" message="tns:IWCFAspen_FetchDataByTagList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagListResponse" message="tns:IWCFAspen_FetchDataByTagList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueList" message="tns:IWCFAspen_FetchDataByTagValueList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueListResponse" message="tns:IWCFAspen_FetchDataByTagValueList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByValueListByCache">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByValueListByCache" message="tns:IWCFAspen_FetchDataByValueListByCache_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByValueListByCacheResponse" message="tns:IWCFAspen_FetchDataByValueListByCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueByCache">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueByCache" message="tns:IWCFAspen_FetchDataByTagValueByCache_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueByCacheResponse" message="tns:IWCFAspen_FetchDataByTagValueByCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueListByCache">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueListByCache" message="tns:IWCFAspen_FetchDataByTagValueListByCache_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagValueListByCacheResponse" message="tns:IWCFAspen_FetchDataByTagValueListByCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagPropertyList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagPropertyList" message="tns:IWCFAspen_FetchDataByTagPropertyList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTagPropertyListResponse" message="tns:IWCFAspen_FetchDataByTagPropertyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTemp">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTemp" message="tns:IWCFAspen_FetchDataByTemp_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTempResponse" message="tns:IWCFAspen_FetchDataByTemp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTempList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTempList" message="tns:IWCFAspen_FetchDataByTempList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTempListResponse" message="tns:IWCFAspen_FetchDataByTempList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParam">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByQueryParam" message="tns:IWCFAspen_FetchDataByQueryParam_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByQueryParamResponse" message="tns:IWCFAspen_FetchDataByQueryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParamList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByQueryParamList" message="tns:IWCFAspen_FetchDataByQueryParamList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByQueryParamListResponse" message="tns:IWCFAspen_FetchDataByQueryParamList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTrend">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTrend" message="tns:IWCFAspen_FetchDataByTrend_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByTrendResponse" message="tns:IWCFAspen_FetchDataByTrend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByHistory">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByHistory" message="tns:IWCFAspen_FetchDataByHistory_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByHistoryResponse" message="tns:IWCFAspen_FetchDataByHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByStringHistory">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByStringHistory" message="tns:IWCFAspen_FetchDataByStringHistory_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByStringHistoryResponse" message="tns:IWCFAspen_FetchDataByStringHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByAggregates">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByAggregates" message="tns:IWCFAspen_FetchDataByAggregates_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/FetchDataByAggregatesResponse" message="tns:IWCFAspen_FetchDataByAggregates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagFieldValue">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagFieldValue" message="tns:IWCFAspen_GetTagFieldValue_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagFieldValueResponse" message="tns:IWCFAspen_GetTagFieldValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagFieldValueList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagFieldValueList" message="tns:IWCFAspen_GetTagFieldValueList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagFieldValueListResponse" message="tns:IWCFAspen_GetTagFieldValueList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CacheListTest">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/CacheListTest" message="tns:IWCFAspen_CacheListTest_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/CacheListTestResponse" message="tns:IWCFAspen_CacheListTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCosFileds">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetCosFileds" message="tns:IWCFAspen_GetCosFileds_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetCosFiledsResponse" message="tns:IWCFAspen_GetCosFileds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceState">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetInterfaceState" message="tns:IWCFAspen_GetInterfaceState_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetInterfaceStateResponse" message="tns:IWCFAspen_GetInterfaceState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingle">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetSingle" message="tns:IWCFAspen_GetSingle_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetSingleResponse" message="tns:IWCFAspen_GetSingle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuery">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetQuery" message="tns:IWCFAspen_GetQuery_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetQueryResponse" message="tns:IWCFAspen_GetQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/ExecuteSql" message="tns:IWCFAspen_ExecuteSql_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/ExecuteSqlResponse" message="tns:IWCFAspen_ExecuteSql_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUnit">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/AddUnit" message="tns:IWCFAspen_AddUnit_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/AddUnitResponse" message="tns:IWCFAspen_AddUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRTDBHostList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetRTDBHostList" message="tns:IWCFAspen_GetRTDBHostList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetRTDBHostListResponse" message="tns:IWCFAspen_GetRTDBHostList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataList">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProcessDataList" message="tns:IWCFAspen_GetTagProcessDataList_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProcessDataListResponse" message="tns:IWCFAspen_GetTagProcessDataList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataListByMap">
+      <wsdl:input wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProcessDataListByMap" message="tns:IWCFAspen_GetTagProcessDataListByMap_InputMessage" />
+      <wsdl:output wsaw:Action="Http://www.hanatech.com.cn/WCFService/IWCFAspen/GetTagProcessDataListByMapResponse" message="tns:IWCFAspen_GetTagProcessDataListByMap_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

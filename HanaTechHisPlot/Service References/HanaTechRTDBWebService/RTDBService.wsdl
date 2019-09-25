@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RTDBService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.16.0.45:8081/RTDBService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRTDBService_GetTagList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagList" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProperty" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagPropertyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagPropertyList" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagPropertyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagPropertyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_FetchDataByTagValueList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueList" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_FetchDataByTagValueList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByTagValueListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_FetchDataByQueryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParam" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_FetchDataByQueryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_FetchDataByQueryParamList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParamList" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_FetchDataByQueryParamList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDataByQueryParamListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagProcessDataList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataList" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagProcessDataList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagProcessDataListByMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataListByMap" />
+  </wsdl:message>
+  <wsdl:message name="IRTDBService_GetTagProcessDataListByMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagProcessDataListByMapResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRTDBService">
+    <wsdl:operation name="GetTagList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/GetTagList" message="tns:IRTDBService_GetTagList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/GetTagListResponse" message="tns:IRTDBService_GetTagList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/GetTagProperty" message="tns:IRTDBService_GetTagProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/GetTagPropertyResponse" message="tns:IRTDBService_GetTagProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagPropertyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/GetTagPropertyList" message="tns:IRTDBService_GetTagPropertyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/GetTagPropertyListResponse" message="tns:IRTDBService_GetTagPropertyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/FetchDataByTagValueList" message="tns:IRTDBService_FetchDataByTagValueList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/FetchDataByTagValueListResponse" message="tns:IRTDBService_FetchDataByTagValueList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/FetchDataByQueryParam" message="tns:IRTDBService_FetchDataByQueryParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/FetchDataByQueryParamResponse" message="tns:IRTDBService_FetchDataByQueryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParamList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/FetchDataByQueryParamList" message="tns:IRTDBService_FetchDataByQueryParamList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/FetchDataByQueryParamListResponse" message="tns:IRTDBService_FetchDataByQueryParamList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/GetTagProcessDataList" message="tns:IRTDBService_GetTagProcessDataList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/GetTagProcessDataListResponse" message="tns:IRTDBService_GetTagProcessDataList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataListByMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTDBService/GetTagProcessDataListByMap" message="tns:IRTDBService_GetTagProcessDataListByMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTDBService/GetTagProcessDataListByMapResponse" message="tns:IRTDBService_GetTagProcessDataListByMap_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRTDBService" type="tns:IRTDBService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTagList">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/GetTagList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProperty">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/GetTagProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagPropertyList">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/GetTagPropertyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByTagValueList">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/FetchDataByTagValueList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParam">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/FetchDataByQueryParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDataByQueryParamList">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/FetchDataByQueryParamList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataList">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/GetTagProcessDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagProcessDataListByMap">
+      <soap:operation soapAction="http://tempuri.org/IRTDBService/GetTagProcessDataListByMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RTDBService">
+    <wsdl:port name="BasicHttpBinding_IRTDBService" binding="tns:BasicHttpBinding_IRTDBService">
+      <soap:address location="http://172.16.0.45:8081/RTDBService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,68 @@
+﻿body {
+background-color:#eee
+}
+.databox.databox-vertical.radius-bordered .databox-top {
+    -webkit-border-radius: 3px 3px 0 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px 3px 0 0;
+    -moz-background-clip: padding;
+    border-radius: 3px 3px 0 0;
+    background-clip: padding-box;
+}
+.databox.databox-vertical.radius-bordered .databox-bottom {
+    -webkit-border-radius: 0 0 3px 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0 0 3px 3px;
+    -moz-background-clip: padding;
+    border-radius: 0 0 3px 3px;
+    background-clip: padding-box;
+}
+.databox.databox-vertical .databox-top {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    color: #2dc3e8;
+}
+.databox {
+    display: inline-block;
+    width: 100%;
+    height: 65px;
+    padding: 0;
+    font-size: 0;
+    margin-bottom: 30px;
+    vertical-align: top;
+    /*min-width: 130px;*/
+}
+.databox.databox-vertical .databox-bottom {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+    color: #555;
+    padding: 5px 10px;
+    background-color:white;
+    font-size:15px;
+}
+.text-align-center {
+    text-align: center!important;
+}
+.databox .databox-icon>.fa, .databox .databox-icon .typcn, .databox .databox-icon .glyphicon, .databox .databox-icon .wi {
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfTagValueList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TagValueList" nillable="true" type="tns:TagValueList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTagValueList" nillable="true" type="tns:ArrayOfTagValueList" />
+  <xs:complexType name="TagValueList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="位号值" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="位号值时间" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="位号名称" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="可信度" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="描述" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="服务器名称" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagValueList" nillable="true" type="tns:TagValueList" />
+  <xs:complexType name="TagProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACKNOWLEDGEMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALARM_FORMAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALARM_STATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DC_MAX_TIME_INT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DC_SIGNIFICANCE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DC_SLOPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DC_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEVICE_TABLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENG_UNITS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRAPH_MAXIMUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRAPH_MINIMUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HIGH_HIGH_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HIGH_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INPUT_QUALITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INPUT_TIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INPUT_VALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LIMIT_DEADBAND" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOW_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOW_LOW_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE_SWITCH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_TAGNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLANT_AREA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SRC_COLLECTOR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SRC_SCANSECS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SRC_TAGNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STEPPED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TREND_VIEW_TIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUE_FORMAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUE_QUALITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUE_TIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="位号名称" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="描述" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="服务器名称" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagProperty" nillable="true" type="tns:TagProperty" />
+  <xs:complexType name="ArrayOfTagProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TagProperty" nillable="true" type="tns:TagProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTagProperty" nillable="true" type="tns:ArrayOfTagProperty" />
+  <xs:complexType name="QueryParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="位号名称" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="周期" type="xs:int" />
+      <xs:element minOccurs="0" name="字段" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="开始日期" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="排序" type="xs:int" />
+      <xs:element minOccurs="0" name="结束日期" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="请求方式" type="xs:int" />
+      <xs:element minOccurs="0" name="采样方式" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryParam" nillable="true" type="tns:QueryParam" />
+  <xs:complexType name="ArrayOfQueryParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryParam" nillable="true" type="tns:QueryParam" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQueryParam" nillable="true" type="tns:ArrayOfQueryParam" />
+</xs:schema>

@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Demo</title>
+    <link href="~/Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery/jquery-3.1.0.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.js"></script>
+</head>
+<body>
+    <div class="embed-responsive embed-responsive-16by9" style="width:400px;height:700px">
+        <iframe class="embed-responsive-item" src="@Url.Action("Index")"></iframe>
+    </div>
+
+</body>
+</html>

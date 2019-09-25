@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Http://www.hanatech.com.cn/WCFService/" elementFormDefault="qualified" targetNamespace="Http://www.hanatech.com.cn/WCFService/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="ExistsTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistsTagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExistsTagResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="model" nillable="true" type="q1:TagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTagResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="model" nillable="true" type="q2:TagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTagResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTagResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutTagValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTagValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutTagValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PutTagValueResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutTagValueAndDateTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTagValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDateTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutTagValueAndDateTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PutTagValueAndDateTimeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataCollectorList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataCollectorListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetDataCollectorListResult" nillable="true" type="q3:ArrayOfDataCollector" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnitList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnitListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetUnitListResult" nillable="true" type="q4:ArrayOfTagUnit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagListResult" nillable="true" type="q5:ArrayOfTagList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByPageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByPageResult" nillable="true" type="q6:ArrayOfTagList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByPageAndCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByPageAndCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByPageAndCountResult" nillable="true" type="q7:ArrayOfTagList" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByTempPageAndCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDevice" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTemplate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByTempPageAndCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByTempPageAndCountResult" nillable="true" type="q8:ArrayOfTagProperty" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempPageAndCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempPageAndCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByNoTempPageAndCountResult" nillable="true" type="q9:ArrayOfTagProperty" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempDevicePageAndCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDevice" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempDevicePageAndCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByNoTempDevicePageAndCountResult" nillable="true" type="q10:ArrayOfTagProperty" />
+        <xs:element minOccurs="0" name="iTotalCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByTempPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDevice" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTemplate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByTempPageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByTempPageResult" nillable="true" type="q11:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentPageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strPageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempPageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByNoTempPageResult" nillable="true" type="q12:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByTemp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTemplate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByTempResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByTempResult" nillable="true" type="q13:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTemp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNoTempResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagByNoTempResult" nillable="true" type="q14:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagPropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagPropertyResult" nillable="true" type="q15:TagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagPropertyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strTagName" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagPropertyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagPropertyListResult" nillable="true" type="q17:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataResult" nillable="true" type="q18:TagList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strTagName" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTagListResult" nillable="true" type="q20:ArrayOfTagList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagValueList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strTagName" nillable="true" type="q21:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagValueListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTagValueListResult" nillable="true" type="q22:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByValueListByCache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strTagNameList" nillable="true" type="q23:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByValueListByCacheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FetchDataByValueListByCacheResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagValueByCache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagValueByCacheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTagValueByCacheResult" nillable="true" type="q24:TagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagValueListByCache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strTagNameList" nillable="true" type="q25:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagValueListByCacheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTagValueListByCacheResult" nillable="true" type="q26:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagPropertyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strTagName" nillable="true" type="q27:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTagPropertyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTagPropertyListResult" nillable="true" type="q28:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTemp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTempResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTempResult" nillable="true" type="q29:TagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTempList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tagList" nillable="true" type="q30:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTempListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTempListResult" nillable="true" type="q31:ArrayOfTagProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByQueryParam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qp" nillable="true" type="q32:QueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByQueryParamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByQueryParamResult" nillable="true" type="q33:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByQueryParamList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qpList" nillable="true" type="q34:ArrayOfQueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByQueryParamListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByQueryParamListResult" nillable="true" type="q35:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTrend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qp" nillable="true" type="q36:QueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByTrendResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByTrendResult" nillable="true" type="q37:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qp" nillable="true" type="q38:QueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByHistoryResult" nillable="true" type="q39:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByStringHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qp" nillable="true" type="q40:QueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByStringHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FetchDataByStringHistoryResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByAggregates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qp" nillable="true" type="q41:QueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDataByAggregatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="FetchDataByAggregatesResult" nillable="true" type="q42:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagFieldValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTagName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFieldName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagFieldValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTagFieldValueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagFieldValueList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="list" nillable="true" type="q43:ArrayOfQueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagFieldValueListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetTagFieldValueListResult" nillable="true" type="q44:ArrayOfTagValueList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CacheListTest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CacheListTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="CacheListTestResult" nillable="true" type="q45:ArrayOfTagPropertyForCache" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCosFileds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCosName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFields" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strWhere" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCosFiledsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetCosFiledsResult" nillable="true" type="q46:ArrayOfTagList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInterfaceState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInterfaceStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="GetInterfaceStateResult" nillable="true" type="q47:ArrayOfAsepnInterface" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSQL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSingleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSQL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueryResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+                </ActualType>
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSql">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSQL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSqlResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUnit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUnitName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUnitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUnitResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRTDBHostList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRTDBHostListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetRTDBHostListResult" nillable="true" type="q48:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagProcessDataList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qp" nillable="true" type="q49:QueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagProcessDataListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetTagProcessDataListResult" nillable="true" type="q50:ArrayOfKeyValueOfstringArrayOfTagValueListlMq_PgcEl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagProcessDataListByMap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/HanaTech.WCFService.Model" minOccurs="0" name="qpList" nillable="true" type="q51:ArrayOfQueryParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagProcessDataListByMapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetTagProcessDataListByMapResult" nillable="true" type="q52:ArrayOfKeyValueOfstringArrayOfTagValueListlMq_PgcEl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

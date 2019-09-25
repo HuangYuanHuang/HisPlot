@@ -1,0 +1,601 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/jquery.minicolors.css" rel="stylesheet" />
+    <link href="~/Content/xeditable.css" rel="stylesheet" />
+    <link href="~/Content/canvasGrid.css" rel="stylesheet" />
+    <link href="~/Content/iThing.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/JSLINQ.js"></script>
+    <script src="~/Scripts/jquery.minicolors.js"></script>
+    <script src="~/Scripts/html2canvas.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/angular-minicolors.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-with-locales.js"></script>
+    <script src="~/Scripts/angular-moment.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+    <script src="~/Scripts/xeditable.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="~/Scripts/jQAllRangeSliders-withRuler-min.js"></script>
+    <script src="~/Scripts/bootstrap3-typeahead.js"></script>
+    <script src="~/Scripts/angular-resize.js"></script>
+</head>
+<body style="min-width:700px;overflow-x:hidden;">
+    <div class="loading-container" id="loading">
+        <div class="loading-progress">
+            <div class="rotator">
+                <div class="rotator">
+                    <div class="rotator colored">
+                        <div class="rotator">
+                            <div class="rotator colored">
+                                <div class="rotator colored"></div>
+                                <div class="rotator"></div>
+                            </div>
+                            <div class="rotator colored"></div>
+                        </div>
+                        <div class="rotator"></div>
+                    </div>
+                    <div class="rotator"></div>
+                </div>
+                <div class="rotator"></div>
+            </div>
+            <div class="rotator"></div>
+        </div>
+    </div>
+    <nav id="navbar" ng-controller="navbarController" class="navbar navbar-default navbar-fixed-top" role="navigation" style="z-index:3000">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">HTML5趋势图</a>
+            </div>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+
+                    <input id="input_search" style="width:230px" type="text" class="form-control">
+                </div>
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-list"> </span>
+                </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" ng-click="Model.scale.upEvent()" ng-disabled="!Model.scale.scaleDown">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                    </button>
+                    <button type="button" class="btn btn-default" ng-click="Model.scale.downEvent()" ng-disabled="!(Model.scale.isCanBack&&Model.scale.scaleNodes.length>0)">
+                        <span class="glyphicon glyphicon-minus-sign"></span>
+                    </button>
+
+                </div>
+            </form>
+            <form class="navbar-form navbar-right">
+                <div class="btn-group">
+                    @*<button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-saved"></span>保存
+                        </button>*@
+                    <button type="button" class="btn btn-default" ng-click="Model.canvas.export($event)">
+                        <span class="glyphicon glyphicon-export"></span>导出
+                    </button>
+
+                </div>
+                <div class="btn-group columns">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-th icon-th"></i> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><label><input type="checkbox" ng-model="Model.display.canvasDisplay" ng-click="Model.display.checkClick()"> 画图</label></li>
+                        <li><label><input type="checkbox" ng-model="Model.display.silderDisplay"> 时间轴</label></li>
+                        <li><label><input type="checkbox" ng-model="Model.display.timeBtnDisplay"> 时间按钮</label></li>
+                        <li><label><input type="checkbox" ng-model="Model.display.tableDisplay"> 表格</label></li>
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div ng-controller="canvasController" id="mainExport">
+        <div id="top_canvas" style="height:30px" ng-show="!Model.display.canvasDisplay"></div>
+        <div class="container" id="container_canvas" ng-show="Model.display.canvasDisplay" style="padding-top:70px;">
+            <div class="table-responsive">
+                <table id="tableCanvas" class="table table-bordered">
+
+                    <tr ng-repeat="item in Model.canvas.tableRow" on-finish-render-filters>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+            </div>
+            <div>
+                <div class="xtitle">
+                    <label ng-repeat="item in Model.canvas.axisXPosition" ng-style="item.styleUpdate()">{{item.value|amDateFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+
+                </div>
+                <div class="ytitle" ng-repeat="line in Model.nodes">
+                    <label class="canvas_title" ng-repeat="item in line.axisYPosition" ng-style="item.style">{{item.value|number:2}}</label>
+                    <label class="canvas_value_title" ng-repeat="item in line.axisValue" ng-style="item.style">{{item.value|number:3}}</label>
+                </div>
+
+                <canvas id="canvas" resizable ng-Right-Click="Model.canvas.canvasRightClick($event)" ng-mousedown="Model.mouseKeyDown($event)" ng-mouseup="Model.mouseKeyUp($event)" ng-mousemove="Model.mouserOverEvent($event)" ng-dblclick="Model.mouseDbClick()"
+                        height="{{Model.canvas.height}}" width="{{Model.canvas.width}}"
+                        ng-style="Model.canvas.canvasStyle()"></canvas>
+
+
+                <div id="contextmenu">
+                    <div class="canvas_div" ng-show="Model.scale.display" ng-style="Model.scale.style()" ng-Right-Click="Model.scale.rightClick($event)"></div>
+                    <div class="contextmenu" ng-show="Model.scale.contextMenu" ng-style="Model.scale.menuStyle()">
+                        <div class="list-group">
+
+                            <a href="#" class="list-group-item" ng-click="Model.scale.upEvent()"><span class="glyphicon glyphicon-plus-sign">&nbsp;放大</span></a>
+
+
+                        </div>
+                    </div>
+                    <div class="contextmenu" ng-show="Model.canvas.canvasContextMenu&&Model.scale.isCanBack" ng-style="Model.canvas.canvasMenuStyle()">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item" ng-click="Model.scale.downEvent()">
+                                <span class="glyphicon glyphicon-minus-sign">&nbsp;还原</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mousehr contextmenu" ng-repeat="item in Model.splitLines">
+                        <hr ng-Right-Click="item.mouseRightClick($event)" ng-mouseup="item.selectMouseUp($event)" ng-mousedown="item.selectClick($event)" ng-style="item.style()" />
+                        <div class="contextmenu" ng-show="item.contextMenu" ng-style="item.menuStyle()">
+                            <div class="list-group">
+
+                                <a href="#" class="list-group-item" ng-click="item.remove()"><span class="glyphicon glyphicon-remove">&nbsp;删除</span></a>
+                                <a href="#" class="list-group-item" ng-click="item.clear()"> <span class="glyphicon glyphicon-trash">&nbsp;清除</span></a>
+
+                            </div>
+                        </div>
+                        <div class="popover fade right in popover_hr" role="tooltip" ng-style="item.poverStyle()">
+                            <div class="arrow" style="top: 50%;"></div>
+                            <h3 class="popover-title">{{item.time|amDateFormat:'YYYY-MM-DD HH:mm:ss'}}</h3>
+                            <div class="popover-content" style="max-height:200px;overflow-y:auto">
+                                <ul>
+                                    <li ng-repeat="d in item.poperNodes"> <span ng-style="d.style">{{d.value}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-fluid" ng-controller="GridController">
+
+        <div class="row text-center" style="height:20px;padding-top:20px" ng-show="Display.silderDisplay">
+            <label>{{Model.silder.offsetDay}}</label>
+            <label>{{Model.offsetStr(Model.silder.offsetHour)}}</label>
+            <label>{{Model.offsetStr(Model.silder.offsetMinutes)}}</label>
+            <label>{{Model.offsetStr(Model.silder.offsetSecond)}}</label>
+        </div>
+        <div class="row grid_menu" style="padding-bottom:10px" ng-show="Display.silderDisplay">
+            <div class="col-lg-1 col-sm-2 col-xs-2" style="padding-top:40px;padding-right:5px">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-default " data-toggle="modal" id="btn_config" data-target="#ModalConfig">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info " ng-click="Model.silder.preSilderEvent()">
+                            <span class="glyphicon glyphicon-step-backward"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-10 col-sm-8 col-xs-8" style="padding-left:0px;padding-right:0px">
+                <div id="dateRulersExample" class="valuelabel-darkorange silder-darkorange"></div>
+
+            </div>
+            <div class="col-lg-1 col-sm-2 col-xs-2" style="padding-top:40px;padding-left:5px">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info " ng-click="Model.silder.nextSilderEvent()">
+                            <span class="glyphicon glyphicon-step-forward"></span>
+                        </button>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" ng-class="Model.realHisColor" ng-click="Model.realOrHisEvent()">
+                            <span ng-class="Model.realHisClass"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:10px" ng-show="Display.timeBtnDisplay">
+            <div class="col-md-2 col-sm-3 col-xs-3 text-center">
+                <label>{{Model.silder.startSilder|amDateFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+            </div>
+            <div class="col-md-8 col-sm-6 col-xs-6 text-center" id="gridtooblr">
+
+                <button type="button" ng-click="Model.silder.offsetBtnChange('7200','.btn_two')" class="btn btn-default btn-sm grid_btn_silder btn_two" style="width:50px">2小时</button>
+
+
+                <button type="button" ng-click="Model.silder.offsetBtnChange('14400','.btn_four')" class="btn btn-default  btn-sm grid_btn_silder btn_four" style="width:50px">4小时</button>
+
+
+                <button type="button" ng-click="Model.silder.offsetBtnChange('86400','.btn_day')" class="btn btn-default btn-sm grid_btn_silder btn_day" style="width:50px">1天</button>
+
+
+                <button type="button" ng-click="Model.silder.offsetBtnChange('604800','.btn_week')" class="btn btn-default btn-sm grid_btn_silder btn_week" style="width:50px">1周</button>
+
+                <button type="button" ng-click="Model.silder.offsetBtnChange('2419200','.btn_month')" class="btn btn-default btn-sm grid_btn_silder btn_month" style="width:50px">4周</button>
+
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3 text-center">
+                <label>{{Model.silder.endSilder|amDateFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+            </div>
+        </div>
+
+        <div ng-show="Display.tableDisplay">
+            <table class="table table-bordered   table-condensed table_grid">
+                <thead>
+                    <tr>
+                        <td style="width:30px"></td>
+                        <td style="width:50px"></td>
+                        <td>名称</td>
+                        <td>说明</td>
+                        <td>单位</td>
+                        <td>状态</td>
+                        <td><input type="checkbox" class="checkbox" checked="checked" ng-click="Model.checkClick()" /></td>
+                        <td>绘图最小值</td>
+                        <td>绘图最大值</td>
+                        <td>时间偏移量</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in Model.List" ng-class="item.rowClass">
+                        <td>
+                            <button type="button" class="btn btn-default btn-xs" ng-click="item.CssDbClick()">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                            </button>
+
+                        </td>
+                        <td ng-click="item.showOrHideClick($index)"><hr style="width:20px;margin-top:8px;margin-bottom:0px;border-top:2px;cursor:pointer" ng-style="item.CssStyle" /></td>
+                        <td> <a ng-click="item.tagDbClick($index)"><strong>{{item.Name}}</strong></a></td>
+                        <td>{{item.Text}}</td>
+                        <td>{{item.Unit}}</td>
+                        <td>{{item.Status}}</td>
+                        <td><input type="checkbox" ng-model="item.IsCheck" ng-click="item.updateMinMax(true)" /></td>
+                        <td>
+                            <div class="popover-wrapper">
+
+                                <a href="#" editable-number="item.Min" e-step="0.001" e-style="width:120px" onaftersave="item.minSaveClick()">{{ item.Min|number:3}}</a>
+                            </div>
+
+
+                        </td>
+                        <td>
+                            <div class="popover-wrapper">
+                                <a href="#" editable-number="item.Max" e-step="0.001" e-style="width:120px" onaftersave="item.maxSaveClick()">{{ item.Max|number:3}}</a>
+                            </div>
+
+
+                        </td>
+                        <td>
+
+                            <a ng-click="item.offsetChange()"><span ng-class="item.offsetClass"></span></a>
+                            <div class="popover-wrapper">
+                                <a href="#" e-style="width:70px" editable-number="item.offsetHour" e-min="0" onaftersave="item.offsetTimeChange()">{{item.offsetStr(item.offsetHour)}}</a>
+                            </div>：
+                            <div class="popover-wrapper">
+                                <a href="#" e-style="width:70px" editable-number="item.offsetMinutes" e-min="0" e-max="59" onaftersave="item.offsetTimeChange()">{{item.offsetStr(item.offsetMinutes)}}</a>
+                            </div>：
+                            <div class="popover-wrapper">
+                                <a href="#" e-style="width:70px" editable-number="item.offsetSecond" e-min="0" e-max="59" onaftersave="item.offsetTimeChange()">{{item.offsetStr(item.offsetSecond)}}</a>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="colorModal" tabindex="-1" role="dialog" aria-labelledby="colorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                        <h4 class="modal-title" id="colorModalLabel" ng-style="Model.config.currTitleBg">{{Model.config.currModelTitle}}</h4>
+                    </div>
+                    <div class="modal-body" style="height:350px">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>线条颜色</label>
+                                <input minicolors="Model.config.customSettings"
+                                       class="form-control"
+                                       type="text"
+                                       ng-model="Model.config.currColor">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">线条样式</label>
+                                <table class="table table-hover" id="taleHr">
+                                    <tr>
+                                        <td><input type="radio" style="margin-top:12px;" name="optionsRadios" value="solid_1" ng-model="Model.config.currRadioValue"></td>
+                                        <td><hr style="width:400px;border-width:2px;margin-top:12px;" ng-style="Model.config.currBordColor" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="radio" style="margin-top:12px;" name="optionsRadios" value="solid_2" ng-model="Model.config.currRadioValue"></td>
+                                        <td><hr style="width:400px;border-width:4px;margin-top:12px;" ng-style="Model.config.currBordColor" /></td>
+                                    </tr>
+
+                                </table>
+
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="Model.config.applyCurr()" data-dismiss="modal">应用</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                        <h4 class="modal-title" id="myModalLabel">{{Model.config.currModelTitle}}</h4>
+                    </div>
+                    <div class="modal-body" style="max-height:300px;overflow-y:auto">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <td>时间点</td>
+                                    <td>值</td>
+                                    <td>可信度</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in Model.tagDetailList">
+                                    <td>{{item.Time|amDateFormat:'YYYY-MM-DD HH:mm:ss'}}</td>
+                                    <td>{{item.Value|number:3}}</td>
+                                    <td>{{item.Confidence}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="Model.config.export()">导出</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                        <h4 class="modal-title" id="myModalLabel">设置</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal-modal">
+                            <div class="form-group" style="padding-top:20px;padding-bottom:20px;">
+                                <label class="col-sm-2 control-label">开始时间</label>
+                                <div class="col-sm-10">
+                                    <input type='text' class="form-control datetimepicker" ng-model="Model.startDate" id="modal_start" ng-blur="Model.silder.startChange()" />
+                                </div>
+                            </div>
+                            <div class="form-group" style="padding-top:20px;padding-bottom:20px;">
+                                <label class="col-sm-2 control-label">间隔时间</label>
+                                <div class="col-sm-10">
+                                    <div class="col-xs-6" style="padding-top:5px;padding-left:0px">
+                                        <div class="popover-wrapper">
+                                            <a href="#" e-style="width:70px" class="form-control" editable-number="Model.silder.offsetDay" e-min="0" e-max="99" onaftersave="Model.silder.offsetUpdate(true)">{{Model.offsetStr(Model.silder.offsetDay)}}</a>
+                                        </div>&nbsp;
+                                        <div class="popover-wrapper">
+                                            <a href="#" e-style="width:70px" class="form-control" editable-number="Model.silder.offsetHour" e-min="0" e-max="23" onaftersave="Model.silder.offsetUpdate(true)">{{Model.offsetStr(Model.silder.offsetHour)}}</a>
+                                        </div>:
+                                        <div class="popover-wrapper">
+                                            <a href="#" e-style="width:70px" class="form-control" editable-number="Model.silder.offsetMinutes" e-min="0" e-max="59" onaftersave="Model.silder.offsetUpdate(true)">{{Model.offsetStr(Model.silder.offsetMinutes)}}</a>
+                                        </div>:
+                                        <div class="popover-wrapper">
+                                            <a href="#" e-style="width:70px" class="form-control" editable-number="Model.silder.offsetSecond" e-min="0" e-max="59" onaftersave="Model.silder.offsetUpdate(true)">{{Model.offsetStr(Model.silder.offsetSecond)}}</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6">
+
+                                        <div class="btn-group group_silder btn-group-sm">
+                                            <button type="button" id="btn_two" ng-click="Model.silder.offsetModalBtnChange('7200','#btn_two')" class="btn btn-default  grid_btn_silder btn_two">2H</button>
+                                            <button type="button" id="btn_four" ng-click="Model.silder.offsetModalBtnChange('14400','#btn_four')" class="btn btn-default grid_btn_silder btn_four">4H</button>
+                                            <button type="button" id="btn_day" ng-click="Model.silder.offsetModalBtnChange('86400','#btn_day')" class="btn btn-default grid_btn_silder btn_day">1D</button>
+                                            <button type="button" id="btn_week" ng-click="Model.silder.offsetModalBtnChange('604800','#btn_week')" class="btn btn-default grid_btn_silder btn_week">1W</button>
+                                            <button type="button" id="btn_month" ng-click="Model.silder.offsetModalBtnChange('2419200','#btn_month')" class="btn btn-default grid_btn_silder btn_month">4W</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="padding-top:20px;padding-bottom:20px;">
+                                <label class="col-sm-2 control-label">结束时间</label>
+                                <div class="col-sm-10">
+                                    <input type='text' class="form-control datetimepicker" ng-model="Model.endDate" id="modal_end" ng-blur="Model.silder.endChange()" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="Model.silder.offsetApply()">应用</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="~/app/QueryModel.js"></script>
+    <script src="~/app/GridCanvas.js"></script>
+    <script src="~/app/GridCommon.js"></script>
+
+    <script type="text/javascript">
+        var app = angular.module('app', ["canvasGrid", "Grid", "rt.resize"]);
+        var isFistLoad = true;
+        app.run(function (editableOptions) {
+            editableOptions.theme = 'bs3';
+
+        });
+        app.controller("navbarController", function ($scope, Canvas, GridCommon, $http, $location) {
+            $('#input_search').typeahead({
+                source: function (query, process) {
+                    $http.post("@Url.Action("search")" + "/" + query).success(function (data) {
+                        return process(data);
+                    })
+                },
+                updater: function (item) {
+                    Canvas.queryModel.addTag(item.service + ":" + item.name);
+                    var index = Canvas.queryModel.Querys.length - 1;
+                    var temp = Canvas.queryModel.Querys[index];
+                    var arry = [];
+                    arry.push(temp);
+                    $http.post('@Url.Action("Grid")', angular.toJson(arry)).success(function (grid) {
+                        GridCommon.loadData(grid);
+                        Canvas.requsetData(Canvas.queryModel.queryParms(), Canvas.requsetSuccess);
+                    })
+                    return item.name;
+                }
+            });
+            console.log($location.search());
+            $scope.Model = Canvas;
+        })
+        app.controller("GridController", function (GridCommon, $scope, Canvas, $http) {
+            $scope.Model = GridCommon;
+            $scope.Display = Canvas.display;
+            GridCommon.init();
+            Canvas.startEndChangeEvent = function (start, end) {
+                GridCommon.startDate = start.format("YYYY-MM-DD HH:mm:ss");
+                GridCommon.endDate = end.format("YYYY-MM-DD HH:mm:ss");
+                GridCommon.silder.silderUpdateOffset(moment(end).diff(start, 's'));
+            };
+            Canvas.changeHisEvent = GridCommon.changeHisEvent;
+            Canvas.initStartEndSilder = function (start, end) {
+                GridCommon.silder.startSilder = start;
+                GridCommon.silder.endSilder = end;
+
+            }
+            GridCommon.updateRealOrHis = function (val) {
+                Canvas.isReal = val;
+                Canvas.monitorRefrsh();
+            }
+            GridCommon.startEndChangedEvent = function (start, end) {
+                Canvas.queryModel.updateTime(start, end);
+                Canvas.requsetData(Canvas.queryModel.queryParms(), function (data) {
+                    Canvas.requsetSuccess(data);
+                    Canvas.silder.refreshSilder();
+                    Canvas.silder.initValue();
+                    Canvas.scale.firstLoadData = data;
+                })
+            }
+            GridCommon.loadDetailListEvent = Canvas.loadDetailList;
+            GridCommon.gridConfigChanged = Canvas.refreshConfig;
+            GridCommon.silderStartEndChanged = Canvas.silder.silderStartEndChanged;
+            Canvas.silder.silderWidthChanged = GridCommon.silder.silderUpdateOffset;
+            GridCommon.exportExcel = Canvas.gridExport;
+        })
+        app.controller("canvasController", function ($scope, GridCommon, Canvas, $interval, $http, $timeout, resize, $rootScope) {
+            $scope.Model = Canvas;
+            Canvas.canvasUrl = '@Url.Action("List")';
+            Canvas.exportUrl = '@Url.Action("Report")'
+            Canvas.canvasImportUrl = '@Url.Action("ExportImage")';
+            Canvas.canvasExportUrl = '@Url.Action("ImageDown")'
+            Canvas.requsetSuccess = function (data) {
+                GridCommon.setMinMaxValue(data.Lines);
+
+            }
+            resize($scope).call(function () {
+                Canvas.init();
+                $scope.$apply();
+                $timeout(Canvas.resize(), 100);
+                GridCommon.reseizeWindow();
+            })
+            $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+                $http.post('@Url.Action("Grid")', Canvas.queryModel.queryParms()).success(function (grid) {
+                    GridCommon.loadData(grid);
+                    Canvas.requsetData(Canvas.queryModel.queryParms(), function (data) {
+                        GridCommon.setMinMaxValue(data.Lines);
+                        Canvas.scale.firstLoadData = data;
+                        Canvas.silder.refreshSilder(false);
+                        Canvas.silder.init(Canvas.queryModel.isHisotory);
+                        if (!Canvas.queryModel.isPlay && !Canvas.queryModel.isHisotory) {
+                            Canvas.monitorRefrsh();
+                        }
+                        GridCommon.reseizeWindow();
+                    })
+
+                }).error(function () {
+                    Canvas.startDate = moment().add(-2, 'h');
+                    Canvas.endDate = moment();
+                    Canvas.silder.refreshSilder(false);
+                    Canvas.silder.init(Canvas.queryModel.isHisotory);
+                    $("#loading").addClass("loading-inactive");
+                })
+
+            });
+        });
+
+        app.directive('ngRightClick', function ($parse) {
+            return function (scope, element, attrs) {
+                var fn = $parse(attrs.ngRightClick);
+                element.bind('contextmenu', function (event) {
+                    scope.$apply(function () {
+                        event.preventDefault();
+                        fn(scope, { $event: event });
+                    });
+                });
+            };
+        });
+        app.directive('onFinishRenderFilters', function ($timeout) {
+            return {
+                restrict: 'A',
+                link: function (scope, element, attr) {
+                    if (scope.$last === true) {
+                        $timeout(function () {
+
+                            scope.$emit('ngRepeatFinished');
+                        });
+                    }
+                }
+            };
+        });
+
+
+
+    </script>
+
+</body>
+</html>
